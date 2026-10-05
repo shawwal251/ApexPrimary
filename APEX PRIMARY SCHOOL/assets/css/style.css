@@ -1,0 +1,5 @@
+body { font-family: 'Inter', sans-serif; }
+        .hero-bg {
+            background: linear-gradient(rgba(16, 32, 65, 0.82), rgba(16, 32, 65, 0.82)), 
+            url('/assets/images/hero.jpg') center/cover no-repeat;
+        }

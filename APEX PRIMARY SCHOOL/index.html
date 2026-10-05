@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Apex Primary</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-gold-500 selection:text-navy-950 flex flex-col min-h-screen">
+
+    <header class="fixed top-4 left-4 right-4 z-50 max-w-7xl mx-auto">
+        <nav class="bg-navy-900/90 backdrop-blur-md border border-slate-700/50 shadow-2xl rounded-2xl px-6 py-4 flex items-center justify-between transition-all duration-300">
+            <!-- School Logo -->
+            <a class="flex items-center space-x-3 group" href="index.html">
+                <div
+                    class="w-10 h-10 rounded-xl bg-gradient-to-tr from-gold-500 to-amber-400 flex items-center justify-center text-navy-950 font-extrabold text-xl shadow-lg group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <span class="text-white font-bold text-lg tracking-tight uppercase block">Apex Primary</span>
+                </div>
+            </a>
+            <!-- Desktop Nav Links -->
+            <div class="hidden lg:flex items-center space-x-1">
+                <a href="index.html"
+                    class="nav-btn px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-navy-800/50 transition-all">Home</a>
+                <a href="academics.html"
+                    class="nav-btn px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-navy-800/50 transition-all">Academics</a>
+                <a href="admissions.html"
+                    class="nav-btn px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-navy-800/50 transition-all">Admissions</a>
+                <a href="campus-life.html"
+                    class="nav-btn px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-navy-800/50 transition-all">Campus
+                    Life</a>
+                <a href="contact.html"
+                    class="nav-btn px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-navy-800/50 transition-all">Contact</a>
+            </div>
+            <!-- CTA & Mobile Toggle -->
+            <div class="flex items-center space-x-4">
+                <a class="hidden sm:inline-flex items-center space-x-2 bg-gradient-to-r from-gold-500 to-amber-500 hover:from-gold-400 hover:to-amber-400 text-navy-950 px-5 py-2.5 rounded-xl font-semibold text-sm shadow-lg shadow-gold-500/20 transform hover:-translate-y-0.5 transition-all"
+                    href="#" onclick="openPortalModal(event)">
+                    <i class="fa-solid fa-user-lock"></i>
+                    <span>Student Portal</span>
+                </a>
+                <button
+                    class="lg:hidden text-slate-300 hover:text-white p-2 rounded-xl bg-navy-800/50 focus:outline-none"
+                    id="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Navigation Drawer -->
+        <div class="hidden lg:hidden mt-2 bg-navy-900/95 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-6 shadow-2xl flex flex-col space-y-3"
+            id="mobile-menu">
+            <a href="index.html"
+                class="mobile-nav-link text-left px-4 py-3 rounded-xl text-white font-medium hover:bg-navy-800 flex items-center space-x-3"><i
+                    class="fa-solid fa-house text-gold-400 w-6"></i><span>Home</span></a>
+            <a href="academics.html"
+                class="mobile-nav-link text-left px-4 py-3 rounded-xl text-white font-medium hover:bg-navy-800 flex items-center space-x-3"><i
+                    class="fa-solid fa-book-open text-gold-400 w-6"></i><span>Academics</span></a>
+            <a href="admissions.html"
+                class="mobile-nav-link text-left px-4 py-3 rounded-xl text-white font-medium hover:bg-navy-800 flex items-center space-x-3"><i
+                    class="fa-solid fa-file-lines text-gold-400 w-6"></i><span>Admissions</span></a>
+            <a href="campus-life.html"
+                class="mobile-nav-link text-left px-4 py-3 rounded-xl text-white font-medium hover:bg-navy-800 flex items-center space-x-3"><i
+                    class="fa-solid fa-users text-gold-400 w-6"></i><span>Campus Life</span></a>
+            <a href="contact.html"
+                class="mobile-nav-link text-left px-4 py-3 rounded-xl text-white font-medium hover:bg-navy-800 flex items-center space-x-3"><i
+                    class="fa-solid fa-envelope text-gold-400 w-6"></i><span>Contact</span></a>
+            <div class="pt-2 border-t border-slate-800">
+                <a class="w-full text-center block bg-gold-500 text-navy-950 font-semibold py-3 rounded-xl shadow-md"
+                    href="#" onclick="openPortalModal(event); toggleMobileMenu();">Student Portal</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-28">
+        <article>
+            <!-- Hero Section -->
+            <section class="hero-bg text-white py-24 md:py-36 px-6 relative overflow-hidden">
+                <div class="max-w-7xl mx-auto text-center relative z-10">
+                    <span
+                        class="inline-flex items-center space-x-2 bg-gold-500/20 border border-gold-500/30 text-gold-400 px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold mb-6 tracking-wide uppercase backdrop-blur-md">
+                        <i class="fa-solid fa-award"></i>
+                        <span>Ranked #1 Private Primary School in Blantyre</span>
+                    </span>
+                    <h1
+                        class="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight mb-6">
+                        Empowering Young Minds, <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-200">Inspiring
+                            Futures</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10 font-normal">
+                        Welcome to Apex Primary School , where academic rigor meets character development, nurturing tomorrow's
+                        global leaders.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="admissions.html" class="inline-flex items-center">
+                            Apply Now <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                        <button
+                            class="w-full sm:w-auto bg-navy-800/80 hover:bg-navy-800 text-white border border-slate-600 font-bold px-8 py-4 rounded-xl backdrop-blur-md transition-all text-center"
+                            onclick="openTourModal(event)">
+                            Schedule a Tour <i class="fa-solid fa-calendar-days ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <!-- Quick Statistics Ticker/Grid -->
+            <section class="bg-navy-900 text-white py-12 border-y border-slate-800">
+                <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="p-4 rounded-2xl bg-navy-800/50 border border-slate-700/50">
+                        <div class="text-3xl md:text-5xl font-extrabold text-gold-400 mb-1">99%</div>
+                        <div class="text-sm text-slate-400 font-medium">Secondary School Acceptance Rate</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-navy-800/50 border border-slate-700/50">
+                        <div class="text-3xl md:text-5xl font-extrabold text-gold-400 mb-1">15:1</div>
+                        <div class="text-sm text-slate-400 font-medium">Student-Teacher Ratio</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-navy-800/50 border border-slate-700/50">
+                        <div class="text-3xl md:text-5xl font-extrabold text-gold-400 mb-1">10+</div>
+                        <div class="text-sm text-slate-400 font-medium">Essential Primary Subjects</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-navy-800/50 border border-slate-700/50">
+                        <div class="text-3xl md:text-5xl font-extrabold text-gold-400 mb-1">K10m</div>
+                        <div class="text-sm text-slate-400 font-medium">Annual Scholarships</div>
+                    </div>
+                </div>
+            </section>
+            <!-- Latest News & Upcoming Events Section -->
+            <section class="py-20 px-6 max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <span class="text-gold-600 font-bold text-sm tracking-widest uppercase block mb-2">Campus
+                            Updates</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-navy-950">Latest News &amp; Events</h2>
+                    </div>
+                    <a href="campus-life.html" class="inline-flex items-center">
+                        <span>Explore Campus Life</span> <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- News Card 1 -->
+                    <article
+                        class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-shadow flex flex-col">
+                        <img alt="a drone" class="w-full h-52 object-cover"
+                            src="assets/images/drone.jpg" />
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span
+                                class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full w-max mb-3">STEM</span>
+                            <h3 class="text-xl font-bold text-navy-950 mb-3">Apex Young-Robotics Team Wins City Championship</h3>
+                            <p class="text-slate-600 text-sm mb-6 flex-grow">Our Primary school robotics club triumphed
+                                over 45 teams Citywide with their autonomous drone flying.</p>
+                            <div
+                                class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs text-slate-500">
+                                <span><i class="fa-regular fa-calendar mr-1"></i> Oct 12, 2026</span>
+                                <span class="text-gold-600 font-semibold cursor-pointer"
+                                    onclick="showArticleModal('Robotics Win', 'Our robotics team secured first place statewide!')">Read
+                                    More</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- News Card 2 -->
+                    <article
+                        class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-shadow flex flex-col">
+                        <img alt="Auditoriam" class="w-full h-52 object-cover"
+                            src="assets/images/meet.jpg" />
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span
+                                class="bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full w-max mb-3">Admissions</span>
+                            <h3 class="text-xl font-bold text-navy-950 mb-3">Parents-Stuff Meeting Scheduled for Next Saturday
+                            </h3>
+                            <p class="text-slate-600 text-sm mb-6 flex-grow">Families are invited to our
+                                school Auditoriam and meet our esteemed faculty.</p>
+                            <div
+                                class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs text-slate-500">
+                                <span><i class="fa-regular fa-calendar mr-1"></i> Oct 18, 2026</span>
+                                <span class="text-gold-600 font-semibold cursor-pointer"
+                                    onclick="showArticleModal('Fall Open House', 'Join us starting at 9:00 AM for guided tours.')">Read
+                                    More</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- News Card 3 -->
+                    <article
+                        class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-shadow flex flex-col">
+                        <img alt="Fine Arts" class="w-full h-52 object-cover"
+                            src="assets/images/art.jpg" />
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span
+                                class="bg-purple-100 text-purple-800 text-xs font-semibold px-3 py-1 rounded-full w-max mb-3">Arts</span>
+                            <h3 class="text-xl font-bold text-navy-950 mb-3">Annual Fall Art Showcase</h3>
+                            <p class="text-slate-600 text-sm mb-6 flex-grow">The Apex Art Department invites the
+                                community to an extraordinary three-night Art Showcasing.</p>
+                            <div
+                                class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs text-slate-500">
+                                <span><i class="fa-regular fa-calendar mr-1"></i> Nov 02, 2026</span>
+                                <span class="text-gold-600 font-semibold cursor-pointer"
+                                    onclick="showArticleModal('Fall Musical', 'Tickets are available online now.')">Read
+                                    More</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <!-- Testimonials Section -->
+            <section class="bg-slate-100 py-20 px-6">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center max-w-2xl mx-auto mb-16">
+                        <span class="text-gold-600 font-bold text-sm tracking-widest uppercase block mb-2">Community
+                            Voices</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-navy-950">What Our Families Say</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-white p-8 rounded-3xl shadow-md border border-slate-200 relative">
+                            <div class="text-gold-500 text-3xl mb-4"><i class="fa-solid fa-quote-left"></i></div>
+                            <p class="text-slate-700 italic mb-6">"Apex Primary School transformed our daughter's educational
+                                journey. The dedicated teachers and unparalleled STEM curriculum helped her improve
+                                technology skills."</p>
+                            <div class="flex items-center space-x-4">
+                                <img alt="Elena Rostova" class="w-12 h-12 rounded-full object-cover"
+                                    src="assets/images/banda.jpg" />
+                                <div>
+                                    <h4 class="font-bold text-navy-950">Mr Banda</h4>
+                                    <p class="text-xs text-slate-500">Parent of a Std 8 child</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-8 rounded-3xl shadow-md border border-slate-200 relative">
+                            <div class="text-gold-500 text-3xl mb-4"><i class="fa-solid fa-quote-left"></i></div>
+                            <p class="text-slate-700 italic mb-6">"The supportive environment and wealth of
+                                extracurricular activities allowed me to discover my passion for public speaking and
+                                leadership."</p>
+                            <div class="flex items-center space-x-4">
+                                <img alt="Marcus Vance" class="w-12 h-12 rounded-full object-cover"
+                                    src="assets/images/sm.jpeg" />
+                                <div>
+                                    <h4 class="font-bold text-navy-950">Shawwal Mustapher</h4>
+                                    <p class="text-xs text-slate-500">Std 8 &amp; Headboy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer class="bg-navy-950 text-white pt-16 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <!-- Brand Column -->
+            <div class="space-y-4">
+                <div class="flex items-center space-x-3">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-gold-500 flex items-center justify-center text-navy-950 font-extrabold text-xl">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <span class="text-white font-bold text-lg">Apex Primary School</span>
+                </div>
+                <p class="text-slate-400 text-sm">Empowering the next generation of global leaders through academic
+                    excellence, character development, and holistic innovation.</p>
+                <div class="flex space-x-4 text-slate-400">
+                    <a class="hover:text-gold-400 text-lg" href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a class="hover:text-gold-400 text-lg" href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a class="hover:text-gold-400 text-lg" href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a class="hover:text-gold-400 text-lg" href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-white font-bold text-base mb-4 tracking-wide uppercase">Quick Links</h4>
+                <ul class="space-y-2.5 text-sm text-slate-400">
+                    <li><a href="index.html" class="hover:text-gold-400 transition-colors">Home</a></li>
+                    <li><a href="academics.html" class="hover:text-gold-400 transition-colors">Academics</a></li>
+                    <li><a href="admissions.html" class="hover:text-gold-400 transition-colors">Admissions</a></li>
+                    <li><a href="campus-life.html" class="hover:text-gold-400 transition-colors">Campus Life</a></li>
+                    <li><a href="contact.html" class="hover:text-gold-400 transition-colors">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Contact Info -->
+            <div>
+                <h4 class="text-white font-bold text-base mb-4 tracking-wide uppercase">Contact Info</h4>
+                <ul class="space-y-3 text-sm text-slate-400">
+                    <li><i class="fa-solid fa-location-dot text-gold-500 mr-2"></i> Kanjedza Forestry, Opposite Earth Station, CA</li>
+                    <li><i class="fa-solid fa-phone text-gold-500 mr-2"></i> +1 800 555 - APEX Quick Line</li>
+                    <li><i class="fa-solid fa-envelope text-gold-500 mr-2"></i> info@apexprimaryschool.edu</li>
+                </ul>
+            </div>
+            <!-- Newsletter Signup -->
+            <div>
+                <h4 class="text-white font-bold text-base mb-4 tracking-wide uppercase">Newsletter</h4>
+                <p class="text-slate-400 text-sm mb-4">Subscribe to our newsletter for weekly campus updates and event
+                    announcements.</p>
+                <form class="space-y-2" onsubmit="handleNewsletter(event)">
+                    <input
+                        class="w-full px-4 py-2.5 rounded-xl bg-navy-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-gold-500"
+                        placeholder="Enter your email" required="" type="email" id="email" name="email" />
+                    <button
+                        class="w-full bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold py-2.5 rounded-xl text-sm transition-colors"
+                        type="submit">Subscribe Now</button>
+                </form>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-slate-900 text-center text-xs text-slate-500">
+            © 2026 Apex Primary School School. All rights reserved. Designed for Excellence.
+            <br>
+            <small>Developed by Shawwal</small>
+        </div>
+    </footer>
+
+    <div class="fixed inset-0 z-50 bg-navy-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4"
+        id="custom-modal">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative text-slate-800">
+            <button class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl" onclick="closeModal()"><i
+                    class="fa-solid fa-xmark"></i></button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
